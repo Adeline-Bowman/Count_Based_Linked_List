@@ -5,18 +5,77 @@ This project explores a **self-organizing linked list** to improve efficiency in
 
 Most systems reorder based on **recent usage**, but **count-based self-organizing lists** offer a better experience when multiple users interact with a terminal. This project builds upon traditional linked lists and adds **decay mechanisms**, ensuring older commands gradually lose priority to maintain relevance.
 
-## Core Approach
-The core data structure is a **self-organizing singly linked list**. Each **node** represents a command and tracks:
-- **Command string** (`command`)
-- **Usage count** (`useCount`)
-- **Last usage timestamp** (`timeSinceUse`)
+## **LinkedListCountBased Class**
+### **Core Features**
+- **Dynamic command tracking** using a **doubly linked list**.
+- **Usage-based reorganization**: Frequently used commands move forward.
+- **Exponential decay mechanism**: Reduces usage counts over time.
+- **Efficient insertion, deletion, and lookup operations**.
 
-Every time a command is accessed:
-1. **Usage count increases**.
-2. **Decay function applies**, gradually reducing the count if unused.
-3. **Reordering occurs**, moving higher-frequency commands to the front using insertion sort.
+### **Operations**
+- **`append_command(string command)`**  
+  Adds a new command to the end of the list.
 
-This ensures **adaptive command suggestions** without permanent ranking dominance.
+- **`insert_data(int offset, string command)`**  
+  Inserts a new command at a specific position in the list.
+
+- **`remove(int offset)`**  
+  Deletes the command at the specified position.
+
+- **`contains(string command)`**  
+  Checks if a command exists in the list.
+
+- **`report()`**  
+  Returns a space-separated string of all commands in the list.
+
+---
+
+## **Command Tracking & Optimization**
+### **Usage-Based Reorganization**
+- **`updateCount(string command)`**  
+  - Increases the usage count of a command.
+  - If the command does not exist, it is added to the list.
+  - The list is reorganized to prioritize frequently used commands.
+
+### **Exponential Decay**
+- **`decay()`**  
+  - Reduces the `useCount` of all commands by **10%** over time.
+  - Helps prevent stale commands from dominating the list.
+
+---
+
+## **Node Structure**
+Each command is stored in a **node**, which contains:
+
+```cpp
+struct node {
+  string command;   // Stores the command string.
+  int useCount;     // Tracks how many times the command has been used.
+  int timeSinceUse; // Tracks time since last use (used for decay mechanism).
+  node* next;       // Pointer to the next node, or nullptr if this is the last node.
+  node* prev;       // Pointer to the previous node (used for doubly linked list).
+  bool accessed;    // Indicates whether the command was accessed recently.
+};
+
+```
+
+## **Code Demonstration**
+The test suite demonstrates the core functionalities of the linked list, including:
+- **Appending commands**
+- **Checking if a command exists**
+- **Removing a command**
+- **Updating command usage counts**
+- **Applying decay to usage counts**
+- **Reorganizing the list based on usage frequency**
+
+### **Running the Test File**
+To compile and run the test suite, follow these steps:
+ **Navigate to the directory where your test file is located**  
+   git@github.com:Adeline-Bowman/Count_Based_Linked_List.git
+ **Compile the test file using g++**
+   g++ -o linked_list_demo linked_list_demo.cpp LinkedListProject.cpp
+ **Run the test executable**
+   ./linked_list_demo
 
 ## Challenges
 ### 1. Implementing Exponential Decay
