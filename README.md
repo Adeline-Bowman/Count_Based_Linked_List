@@ -69,13 +69,13 @@ The test suite demonstrates the core functionalities of the linked list, includi
 - **Reorganizing the list based on usage frequency**
 
 ### **Running the Test File**
-To compile and run the test suite, follow these steps:
- **Navigate to the directory where your test file is located**  
-   git@github.com:Adeline-Bowman/Count_Based_Linked_List.git
- **Compile the test file using g++**
-   g++ -o linked_list_demo linked_list_demo.cpp LinkedListProject.cpp
- **Run the test executable**
-   ./linked_list_demo
+ - To compile and run the test suite, follow these steps:
+ - **Navigate to the directory where your test file is located**  
+   -git clonegit@github.com:Adeline-Bowman/Count_Based_Linked_List.git
+ - **Compile the test file using g++**
+   - g++ -o linked_list_demo linked_list_demo.cpp LinkedListProject.cpp
+ - **Run the test executable**
+   - ./linked_list_demo
 
 ## Challenges
 ### 1. Implementing Exponential Decay
