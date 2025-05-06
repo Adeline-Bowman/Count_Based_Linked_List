@@ -104,7 +104,7 @@ void LinkedListCountBased::remove(int offset) {
             current = current->next;
         }
         
-        if (!current) return;   Ensure valid access before deletion
+        if (!current) return;   //Ensure valid access before deletion
 
         if (current->prev) {
             current->prev->next = current->next;

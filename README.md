@@ -71,7 +71,7 @@ The test suite demonstrates the core functionalities of the linked list, includi
 ### **Running the Test File**
  - To compile and run the test suite, follow these steps:
  - **Navigate to the directory where your test file is located**  
-   -git clone "git@github.com:Adeline-Bowman/Count_Based_Linked_List.git"
+   - git clone https://github.com/Adeline-Bowman/Count_Based_Linked_List.git
  - **Compile the test file using g++**
    - g++ -I . test.cpp LinkedListProject.cpp -o test_linked_list
  - **Run the test executable**
